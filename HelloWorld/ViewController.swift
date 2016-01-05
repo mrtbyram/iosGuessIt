@@ -13,9 +13,11 @@ struct guess {
     var result = ""
 }
 
-class ViewController: UIViewController, UITableViewDataSource {
+class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
     @IBOutlet var myText: UITextField!
+    @IBOutlet weak var myTableView: UITableView!
+    
     
     var guessHistory = [guess]()
     
@@ -36,7 +38,8 @@ class ViewController: UIViewController, UITableViewDataSource {
     @IBAction func btnClick(sender: UIButton){
         guessHistory.append(guess(number: 5, result: "test"))
         self.view.endEditing(true)
-        print(guessHistory)
+        myTableView.reloadData()
+        
     }
     
     internal func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int{
@@ -44,8 +47,9 @@ class ViewController: UIViewController, UITableViewDataSource {
     }
     
     internal func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell{
-        let cell: UITableViewCell = UITableViewCell()
-        cell.detailTextLabel?.text = "3"
+        
+        let cell = UITableViewCell();
+        cell.textLabel?.text = guessHistory[indexPath.row].result;
         return cell
     }
 
