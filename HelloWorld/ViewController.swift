@@ -39,11 +39,11 @@ class ViewController: UIViewController, UITableViewDataSource {
         print(guessHistory)
     }
     
-    public func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int{
+    internal func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int{
         return guessHistory.count
     }
     
-    public func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell{
+    internal func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell{
         let cell: UITableViewCell = UITableViewCell()
         cell.detailTextLabel?.text = "3"
         return cell
