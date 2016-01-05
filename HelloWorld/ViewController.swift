@@ -36,7 +36,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     }
     
     @IBAction func btnClick(sender: UIButton){
-        guessHistory.append(guess(number: 5, result: "test"))
+        guessHistory.append(guess(number: Int(myText.text!)!, result: "test"))
         self.view.endEditing(true)
         myTableView.reloadData()
         
@@ -49,7 +49,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     internal func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell{
         
         let cell = UITableViewCell();
-        cell.textLabel?.text = guessHistory[indexPath.row].result;
+        cell.textLabel?.text = String(guessHistory[indexPath.row].number);
         return cell
     }
 
